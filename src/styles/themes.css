@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary: 14 165 233;
+        --color-secondary: 16 185 129;
+        --color-background: 255 255 255;
+        --color-text: 31 41 55;
+    }
+
+    .dark {
+        --color-primary: 99 102 241;
+        --color-secondary: 52 211 153;
+        --color-background: 15 23 42;
+        --color-text: 243 244 246;
+    }
+}
+
+@layer components {
+    .gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+    }
+
+    .card {
+        @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+    }
+
+    .button-primary {
+        @apply px-6 py-3 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+    }
+
+    .button-secondary {
+        @apply px-6 py-3 rounded-lg border-2 border-primary-600 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900 transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+    }
+
+    .section-title {
+        @apply text-3xl font-bold text-gray-900 dark:text-white text-center mb-12;
+    }
+
+    .card-title {
+        @apply text-xl font-bold text-gray-900 dark:text-white mb-4;
+    }
+
+    .skill-bar {
+        @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mb-4;
+    }
+
+    .skill-progress {
+        @apply bg-primary-600 dark:bg-primary-400 h-2.5 rounded-full transition-all duration-500;
+    }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary-500 dark:bg-primary-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-600 dark:bg-primary-700;
+}
